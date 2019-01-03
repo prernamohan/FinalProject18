@@ -1,9 +1,10 @@
-# Intro to Programming Final Project - Fall 2018
+Game: Magnet Themed Crossword
 
-* Project details are in description.md
-* Replace the content of this file with your own info about your project before the due date
-* Don't forget to fill out the [Project Proposal Form](https://airtable.com/shrrdA41unoBvi6Ki) before break.
-
-## Setting Up Your Repo
-
-On the GitHub page for this repository, click the "Fork" button. This will create your own copy of this repository, linked to my original. Use the same cloning method we used before to clone the repository to your PythonAnywhere account
+For the final project I will be coding a Magnet themed crossword.
+The crossword will be formatted in the standard format for most crossword.
+The crossword will incorporate words based on the people, places, and events at Magnet.
+There will be clues given for each row or column in the crossword that corresponds with a word. Based on the clue, the player will have to guess
+the word and fill it into the crossword. Once all the boxes of the crossword have been filled in, then the entire crossword will be checked for
+correctness. If the crossword is not correct, then the player will be told and given another chance. If the crossword is correct, then the
+player wins the game. It should be noted that there is only one crossword that has been pre-programmed, the computer does not generate a random
+crossword based on a list of words.
