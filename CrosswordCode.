@@ -1,6 +1,12 @@
 print("Welcome to the Magnet-Themed Crossword Game!")
 player_name = input("Enter player name:")
 
+class Crossword_position:
+    """Class describing position of letters"""
+    def __init__(self, coord, answer, guessed)
+        self.coord = [(26,0), (30,0), (17,-1), (24,-1), (26, -1), (30, -1), (17, -2), (24, -2), (26, -2), (30, -2), (41, -2), (42, -2), (43, -2), (44, -2),(45, -2), (46, -2),
+        self.answer =
+        self.guessed =
 class Crossword:
     """Class describing clues of crossword with list of words"""
 
@@ -8,8 +14,8 @@ class Crossword:
         self.word = word
         self.clue = clue
 
-sanservino = ("Sanservino", "the junior year teacher everyone hates")
-gupta = ("Dr.Gupta", "the freshmen year teacher who gave us the most work")
+sanservino = Crossword("Sanservino", "the junior year teacher everyone hates")
+gupta = Crossword("Dr.Gupta", "the freshmen year teacher who gave us the most work")
 omay = ("Omay", "the IT help for our tech class")
 great_gatsby = ("The Great Gatsby", "
 python = ("Python", "the language we are learning")
