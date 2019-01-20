@@ -3,18 +3,80 @@ import time
 
 pygame.init()
 gameDisplay = pygame.display.set_mode((800, 800))
-crossword = pygame.image.load("crossword.png") 
-
-
+black = (0,0,0)
+white = (255, 255, 255)
+red = (255, 0, 0)
 done = True
-while done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = False
 
-    gameDisplay.blit(crossword, (400,400))
-    
+gameDisplay.fill(white)  
 
+b1 = pygame.image.load("crossword4.jpg") 
+gameDisplay.blit(b1, (300,300))
+pygame.display.update()  
+
+
+font = pygame.font.SysFont("monospace", 22)
+
+def make_word(self, word, direction, x, y):
+        for n in range(len(word)):
+            if direction == 'horizontal':
+                self.grid[y][x+n].value = word[n]
+            elif direction == 'vertical':
+                self.grid[y+n][x].value = word[n]
+class Crossword():
+    def __init__(self, word, direction, x, y)
+        self.word = word
+        self.direction = direction
+        self.x = x
+        self.y = y
+
+word = ["omay", "himanee"]
+position = ["H1", "V1"] 
+correct_guesses = []
+H1 = Crossword("omay", "horizontal", 40, 140)
+V1 = Crossword("himanee", "vertical", 40, 160)
+
+guess_right = 0
+while guess_right == 0:
+  guess_position = input("Enter position: ")
+  guess = input("Enter a guess: ")
+  if guess in word:
+    guess_index = word.index(guess)
+    check_position = position[guess_index]
+    if check_position == guess_position:
+      print("you are correct")
+      correct_guesses[guess_index:guess_index] = [guess]
+      if correct_guesses == word:
+          guess_right = 1
+  else:
+    print("you were wrong")
+    guess_right = 0
+
+
+# omay = Crossword("omay", "horizontal", 40, 140)
+# class Crossword():
+#     def __init__(self, word, )
+# def display_text(text):
+#     text1 = font.render(text, True, red)
+#     gameDisplay.blit(text1, (300,300))
+#     pygame.display.update()
+
+# positions = pygame.Surface._pixels_address 
+# print({positions})   
+# x = 300
+# y = 300
+# keyPressed = pygame.key.get_pressed()
+# if keyPressed(pygame.K_DOWN):
+#     if keyPressed(pygame.K_a):
+#         display_text("a")
+# if keyPressed(pygame.K_UP):
+#     y -= 20
+# if keyPressed(pygame.K_DOWN):
+#     y += 20
+# if keyPressed(pygame.K_RIGHT):
+#     x += 20
+# if keyPressed(pygame.K_LEFT):
+#     x -= 20
 #print("Welcome to the Magnet-Themed Crossword Game!")
 
 #def guess_word():
@@ -70,4 +132,8 @@ while done:
 #Horizontal:
 
 #print(f"1:{sanservino.clue}")"""
+while done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = False
 
