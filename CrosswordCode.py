@@ -11,20 +11,11 @@ done = True
 gameDisplay.fill(white)  
 
 b1 = pygame.image.load("crossword4.jpg") 
-gameDisplay.blit(b1, (300,300))
+gameDisplay.blit(b1, (0,0))
 pygame.display.update()  
 
-
-font = pygame.font.SysFont("monospace", 22)
-
-def make_word(self, word, direction, x, y):
-        for n in range(len(word)):
-            if direction == 'horizontal':
-                self.grid[y][x+n].value = word[n]
-            elif direction == 'vertical':
-                self.grid[y+n][x].value = word[n]
 class Crossword():
-    def __init__(self, word, direction, x, y)
+    def __init__(self, word, direction, x, y):
         self.word = word
         self.direction = direction
         self.x = x
@@ -33,24 +24,65 @@ class Crossword():
 word = ["omay", "himanee"]
 position = ["H1", "V1"] 
 correct_guesses = []
-H1 = Crossword("omay", "horizontal", 40, 140)
-V1 = Crossword("himanee", "vertical", 40, 160)
+omay = Crossword("omay", "horizontal", 50, 150)
+himanee = Crossword("himanee", "vertical", 40, 160)
 
-guess_right = 0
-while guess_right == 0:
-  guess_position = input("Enter position: ")
-  guess = input("Enter a guess: ")
-  if guess in word:
-    guess_index = word.index(guess)
-    check_position = position[guess_index]
-    if check_position == guess_position:
-      print("you are correct")
-      correct_guesses[guess_index:guess_index] = [guess]
-      if correct_guesses == word:
-          guess_right = 1
-  else:
-    print("you were wrong")
-    guess_right = 0
+class Display():
+    def __init__(self, l_1, l_2, l_3, l_4, l_5, l_6, l_7, x, y):
+        self.l_1 = l_1
+        self.l_2 = l_2
+        self.l_3 = l_3
+        self.l_4 = l_4
+        self.l_5 = l_5
+        self.l_6 = l_6
+        self.l_7 = l_7
+
+font = pygame.font.SysFont("monospace", 22)
+
+def display_text(text, x, y):
+    text1 = font.render(text, True, red)
+    gameDisplay.blit(text1, (x, y))
+    pygame.display.update()
+
+display_text("o", omay.x, omay.y )
+display_text("m", omay.x + 40, omay.y)
+display_text("a", omay.x + 80, omay.y)
+display_text("y", omay.x + 120, omay.y)
+
+# def make_word(self, word, direction, x, y):
+#         for n in range(len(word)):
+#             if direction == 'horizontal':
+#                 self.grid[y][x+n].value = word[n]
+#             elif direction == 'vertical':
+#                 self.grid[y+n][x].value = word[n]
+# class Crossword():
+#     def __init__(self, word, direction, x, y)
+#         self.word = word
+#         self.direction = direction
+#         self.x = x
+#         self.y = y
+
+# word = ["omay", "himanee"]
+# position = ["H1", "V1"] 
+# correct_guesses = []
+# H1 = Crossword("omay", "horizontal", 40, 140)
+# V1 = Crossword("himanee", "vertical", 40, 160)
+
+# guess_right = 0
+# while guess_right == 0:
+#   guess_position = input("Enter position: ")
+#   guess = input("Enter a guess: ")
+#   if guess in word:
+#     guess_index = word.index(guess)
+#     check_position = position[guess_index]
+#     if check_position == guess_position:
+#       print("you are correct")
+#       correct_guesses[guess_index:guess_index] = [guess]
+#       if correct_guesses == word:
+#           guess_right = 1
+#   else:
+#     print("you were wrong")
+#     guess_right = 0
 
 
 # omay = Crossword("omay", "horizontal", 40, 140)
