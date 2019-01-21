@@ -21,33 +21,61 @@ class Crossword():
         self.x = x
         self.y = y
 
-word = ["omay", "himanee"]
+word = ["omay", "juan"]
 position = ["H1", "V1"] 
 correct_guesses = []
 omay = Crossword("omay", "horizontal", 50, 150)
-himanee = Crossword("himanee", "vertical", 40, 160)
+juan = Crossword("juan", "vertical", 130, 70)
 
-class Display():
-    def __init__(self, l_1, l_2, l_3, l_4, l_5, l_6, l_7, x, y):
-        self.l_1 = l_1
-        self.l_2 = l_2
-        self.l_3 = l_3
-        self.l_4 = l_4
-        self.l_5 = l_5
-        self.l_6 = l_6
-        self.l_7 = l_7
+class Display:
+
+    def __init__(self, word, direction, x, y, value = ""):
+        self.word = word
+        self.direction = direction
+        self.x = x
+        self.y = y
+        self.value = value
+
+    # def make_word(self, word, direction, x, y):
+    #     for n in range(len(word)):
+    #         if direction == 'horizontal':
+    #             [x+n+40][y].value = word[n]
+    #         elif direction == 'vertical':
+    #             [x][y+40+n].value = word[n]
+    def display_text(text, x, y):
+        text1 = font.render(text, True, red)
+        gameDisplay.blit(text1, (x, y))
+        pygame.display.update()
+
+class show_word:
+
+    def display_omay():
+        Display.display_text("o", omay.x, omay.y)
+        Display.display_text("m", omay.x + 40, omay.y)
+        Display.display_text("a", omay.x + 80, omay.y)
+        Display.display_text("y", omay.x + 120, omay.y)
+
+    def display_juan():
+        Display.display_text("j", juan.x, juan.y)
+        Display.display_text("u", juan.x, juan.y + 40)
+        Display.display_text("a", juan.x, juan.y + 80)
+        Display.display_text("n", juan.x, juan.y + 120)
 
 font = pygame.font.SysFont("monospace", 22)
 
-def display_text(text, x, y):
-    text1 = font.render(text, True, red)
-    gameDisplay.blit(text1, (x, y))
-    pygame.display.update()
-
-display_text("o", omay.x, omay.y )
-display_text("m", omay.x + 40, omay.y)
-display_text("a", omay.x + 80, omay.y)
-display_text("y", omay.x + 120, omay.y)
+show_omay = show_word.display_omay()
+show_juan = show_word.display_juan()
+print(show_omay)
+print(show_juan)
+# def display_text(text, x, y):
+#     text1 = font.render(text, True, red)
+#     gameDisplay.blit(text1, (x, y))
+#     pygame.display.update()
+# def display_omay():
+#     display_text("o", omay.x, omay.y)
+#     display_text("m", omay.x + 40, omay.y)
+#     display_text("a", omay.x + 80, omay.y)
+#     display_text("y", omay.x + 120, omay.y)
 
 # def make_word(self, word, direction, x, y):
 #         for n in range(len(word)):
