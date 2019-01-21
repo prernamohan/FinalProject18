@@ -14,6 +14,12 @@ b1 = pygame.image.load("crossword4.jpg")
 gameDisplay.blit(b1, (0,0))
 pygame.display.update()  
 
+while done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = False
+
+
 class Crossword():
     def __init__(self, word, direction, x, y):
         self.word = word
@@ -27,46 +33,66 @@ correct_guesses = []
 omay = Crossword("omay", "horizontal", 50, 150)
 juan = Crossword("juan", "vertical", 130, 70)
 
-class Display:
+# class Display:
 
-    def __init__(self, word, direction, x, y, value = ""):
-        self.word = word
-        self.direction = direction
-        self.x = x
-        self.y = y
-        self.value = value
+#     def __init__(self, word, direction, x, y):
+#         self.word = word
+#         self.direction = direction
+#         self.x = x
+#         self.y = y
 
-    # def make_word(self, word, direction, x, y):
-    #     for n in range(len(word)):
-    #         if direction == 'horizontal':
-    #             [x+n+40][y].value = word[n]
-    #         elif direction == 'vertical':
-    #             [x][y+40+n].value = word[n]
-    def display_text(text, x, y):
-        text1 = font.render(text, True, red)
-        gameDisplay.blit(text1, (x, y))
-        pygame.display.update()
+#     def display_text(text, x, y):
+#         text1 = font.render(text, True, red)
+#         gameDisplay.blit(text1, (x, y))
+#         pygame.display.update()
 
-class show_word:
+# class show_word:
 
-    def display_omay():
-        Display.display_text("o", omay.x, omay.y)
-        Display.display_text("m", omay.x + 40, omay.y)
-        Display.display_text("a", omay.x + 80, omay.y)
-        Display.display_text("y", omay.x + 120, omay.y)
+#     def display_omay():
+#         Display.display_text("o", omay.x, omay.y)
+#         Display.display_text("m", omay.x + 40, omay.y)
+#         Display.display_text("a", omay.x + 80, omay.y)
+#         Display.display_text("y", omay.x + 120, omay.y)
 
-    def display_juan():
-        Display.display_text("j", juan.x, juan.y)
-        Display.display_text("u", juan.x, juan.y + 40)
-        Display.display_text("a", juan.x, juan.y + 80)
-        Display.display_text("n", juan.x, juan.y + 120)
+#     def display_juan():
+#         Display.display_text("j", juan.x, juan.y)
+#         Display.display_text("u", juan.x, juan.y + 40)
+#         Display.display_text("a", juan.x, juan.y + 80)
+#         Display.display_text("n", juan.x, juan.y + 120)
 
-font = pygame.font.SysFont("monospace", 22)
+# font = pygame.font.SysFont("monospace", 22)
 
-show_omay = show_word.display_omay()
-show_juan = show_word.display_juan()
-print(show_omay)
-print(show_juan)
+# show_omay = show_word.display_omay()
+# show_juan = show_word.display_juan()
+
+# show = [show_omay, show_juan]
+guess_right = 0
+while guess_right == 0:
+  guess_position = input("Enter position: ")
+  guess = input("Enter a guess: ")
+  if guess in word:
+    guess_index = word.index(guess)
+    check_position = position[guess_index]
+    if check_position == guess_position:
+      print("you are correct")
+      correct_guesses[guess_index:guess_index] = [guess]
+      #print(show_omay)
+ #     print(show[check_position])
+      if correct_guesses == word:
+          guess_right = 1
+  else:
+    print("you were wrong")
+    guess_right = 0
+
+
+
+
+
+
+
+
+
+
 # def display_text(text, x, y):
 #     text1 = font.render(text, True, red)
 #     gameDisplay.blit(text1, (x, y))
@@ -192,8 +218,4 @@ print(show_juan)
 #Horizontal:
 
 #print(f"1:{sanservino.clue}")"""
-while done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = False
 
