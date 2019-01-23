@@ -58,8 +58,8 @@ grid.show_grid()
 #The list word lists the different terms used in the crossword which corresponds to the position listed in list position 
 #This will let the program to check the index of both lists and if they match then the guess is right at that position
 #The list correct_guesses will be list that correct guesses are added to for a final comparison to determine whether the crossword has been solved
-word = ["ARNOLD", "SEMIFORMAL", "NOWAKOSKI", "THINKPOSITIVEANDSTAYATTRACTIVE", "GERSTEIN", "FORTHEBRAND", "OMAY", "THEGREATGATSBY", "MAGNETMADNESS", "MAKERSPACE", "AUTOCADCERTIFICATION", "SPEAKEASY", "RELAYFORLIFE", "ALLISON", "STUDENTGOVERNMENT", "ENGINEERING", "TIMELINE", "SANSERVINO", "APEXAMS", "GUPTA", "JENN", "PYTHON"]
-position = ["H5", "H6", "H7", "H11", "H13", "H15", "H16", "H19", "H20", "V1", "V2", "V3", "V4", "V5", "V6", "V8", "V9", "V10", "V12", "V14", "V17", "V18"] 
+word = ["ARNOLD", "SEMIFORMAL", "NOWAKOSKI", "THINKPOSITIVEANDSTAYATTRACTIVE", "GERSTEIN", "FORTHEBRAND", "OMAY", "THEGREATGATSBY", "MAGNETMADNESS", "MAKERSPACE", "AUTOCADCERTIFICATION", "SPEAKEASY", "RELAYFORLIFE", "ALLISON", "STUDENTGOVERNMENT", "ENGINEERING", "TIMELINE", "SANSERVINO", "APEXAMS", "GUPTA", "JENN", "PYTHON", "PRANAV"]
+position = ["H5", "H6", "H7", "H11", "H13", "H15", "H16", "H19", "H20", "V1", "V2", "V3", "V4", "V5", "V6", "V8", "V9", "V10", "V12", "V14", "V17", "V18", "V19"] 
 correct_guesses = []
 
 def display_clue():
@@ -69,7 +69,7 @@ def display_clue():
             H6: The main dance at UCVTS hosted by Student Government
             H7: Literature teacher who told us bizzare stories about his life
             H11: The slogan on our Magnet sweatshirts
-            H13: The teacher who participates in PowerWheels competition
+            H13: The teacher who participates in Power Racing competitions
             H15: Rafalowski slogan that caused many a controversy 
             H16: The IT help for our class who deserves a round of applause for the help he gave
             H19: Our literature midterm essay will be on this book
@@ -87,7 +87,9 @@ def display_clue():
             V12: A week in May that if you don't take certain classes you won't have to experience
             V14: We did a Strawberry DNA lab in this class
             V17: My bitter best friend
-            V18: Could be a snake or a language""")
+            V18: Could be a snake or a language
+            V19: My brother""")
+            
     
 
 def display_word(self):
@@ -185,6 +187,10 @@ def display_word(self):
         display_clue()
     elif guess == "PYTHON":
         grid.make_word("PYTHON", "vertical", 36, 14)
+        grid.show_grid()
+        display_clue()
+    elif guess == "PRANAV":
+        grid.make_word("PRANAV", "vertical", 6, 13)
         grid.show_grid()
         display_clue()
 
