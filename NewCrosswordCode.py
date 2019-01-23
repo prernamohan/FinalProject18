@@ -1,5 +1,5 @@
 class Cell:
-"""Creates a class named Cell to create a cell where a potential letter could be in the crossword"""
+    """Creates a class named Cell to create a cell where a potential letter could be in the crossword"""
     def __init__(self, x, y, is_blank, value=" "):
 #Defines all the arguments
         self.x = x
@@ -15,11 +15,11 @@ class Cell:
 
     def show_cell(self):
         print(self.value, end=" ")
-class Grid:
-This creates a class called Grid to display a grid that will be the base of the crossword"""
 
+class Grid:
+    """This creates a class called Grid to display a grid that will be the base of the crossword"""
     def __init__(self, rows, cols):
-        """This defines the dimensions of the grid in terms of rows and columns"""
+    #This defines the dimensions of the grid in terms of rows and columns
 
         self.grid = []
         for y in range(rows):
