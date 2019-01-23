@@ -11,6 +11,8 @@ crossword based on a list of words.
 
 The code for the game should be accessed using the file NewCrosswordCode.py. The file CrosswordCode.py was the version of the code that integrated Pygame but due to some difficulties running Pygame, the code for this project is no longer in that file and is instead in NewCrosswordCode.py. Also, the image that have been uploaded were initally for pygame. 
 
+PowerPoint Presentation Link: https://docs.google.com/presentation/d/19aP1DxQHHjY4H18r-Sfp-X6QtUFnVdUaPuF2OCIretU/edit?usp=sharing
+
 Citations:
 
 Pygame Documentation. Pygame, https://www.pygame.org/docs/. Accesed 22 January 2019.
