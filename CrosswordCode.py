@@ -8,18 +8,6 @@ white = (255, 255, 255)
 red = (255, 0, 0)
 done = True
 
-gameDisplay.fill(white)  
-
-b1 = pygame.image.load("crossword4.jpg") 
-gameDisplay.blit(b1, (0,0))
-pygame.display.update()  
-
-while done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = False
-
-
 class Crossword():
     def __init__(self, word, direction, x, y):
         self.word = word
@@ -33,57 +21,87 @@ correct_guesses = []
 omay = Crossword("omay", "horizontal", 50, 150)
 juan = Crossword("juan", "vertical", 130, 70)
 
-# class Display:
+class Display:
 
-#     def __init__(self, word, direction, x, y):
-#         self.word = word
-#         self.direction = direction
-#         self.x = x
-#         self.y = y
+    def __init__(self, word, x, y):
+        self.word = word
+        self.x = x
+        self.y = y
 
-#     def display_text(text, x, y):
-#         text1 = font.render(text, True, red)
-#         gameDisplay.blit(text1, (x, y))
-#         pygame.display.update()
+    def display_text(self):
+        text1 = font.render(self.word, True, red)
+        gameDisplay.blit(text1, (self.x, self.y))
+        pygame.display.update()
 
-# class show_word:
+omay1display = Display("o", omay.x, omay.y)
+omay2display = Display("m", omay.x + 40, omay.y)
+omay3display = Display("a", omay.x + 80, omay.y)
+omay4display = Display("y", omay.x + 120, omay.y)
 
-#     def display_omay():
-#         Display.display_text("o", omay.x, omay.y)
-#         Display.display_text("m", omay.x + 40, omay.y)
-#         Display.display_text("a", omay.x + 80, omay.y)
-#         Display.display_text("y", omay.x + 120, omay.y)
+juan1display = Display("j", juan.x, juan.y)
+juan2display = Display("u", juan.x, juan.y + 40)
+juan3display = Display("a", juan.x, juan.y + 80)
+juan4display = Display("n", juan.x, juan.y + 120)
 
-#     def display_juan():
-#         Display.display_text("j", juan.x, juan.y)
-#         Display.display_text("u", juan.x, juan.y + 40)
-#         Display.display_text("a", juan.x, juan.y + 80)
-#         Display.display_text("n", juan.x, juan.y + 120)
+class ShowWord:
 
-# font = pygame.font.SysFont("monospace", 22)
+    def display_omay(self):
+        omay1display.display_text()
+        omay2display.display_text()
+        omay3display.display_text()
+        omay4display.display_text()
 
-# show_omay = show_word.display_omay()
-# show_juan = show_word.display_juan()
+    def display_juan(self):
+        juan1display.display_text()
+        juan2display.display_text()
+        juan3display.display_text()
+        juan4display.display_text()
 
-# show = [show_omay, show_juan]
-guess_right = 0
-while guess_right == 0:
-  guess_position = input("Enter position: ")
-  guess = input("Enter a guess: ")
-  if guess in word:
-    guess_index = word.index(guess)
-    check_position = position[guess_index]
-    if check_position == guess_position:
-      print("you are correct")
-      correct_guesses[guess_index:guess_index] = [guess]
-      #print(show_omay)
- #     print(show[check_position])
-      if correct_guesses == word:
-          guess_right = 1
-  else:
-    print("you were wrong")
+font = pygame.font.SysFont("monospace", 22)
+show_word = ShowWord()
+
+def main_code():
     guess_right = 0
+    while guess_right == 0:
+        pygame.display.update()
+        gameDisplay.fill(white)  
+        b1 = pygame.image.load("crossword4.jpg") 
+        gameDisplay.blit(b1, (0,0))
+        pygame.display.update()
+        guess_position = input("Enter position: ")
+        guess = input("Enter a guess: ")
+        if guess in word:
+            guess_index = word.index(guess)
+            check_position = position[guess_index]
+            if check_position == guess_position:
+                print("you are correct")
+                correct_guesses[guess_index:guess_index] = [guess]
+                if guess == "omay":
+                    show_word.display_omay()
+                elif guess == "juan":
+                    show_word.display_juan()
 
+            if correct_guesses == word:
+                guess_right = 1
+        else:
+            print("you were wrong")
+            guess_right = 0
+
+ 
+
+while done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = False
+
+    pygame.display.update()
+    gameDisplay.fill(white)  
+    b1 = pygame.image.load("crossword4.jpg") 
+    gameDisplay.blit(b1, (0,0))
+    pygame.display.update() 
+    main_code()
+
+    pygame.display.flip()
 
 
 
