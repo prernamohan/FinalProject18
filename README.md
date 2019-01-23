@@ -17,3 +17,4 @@ Pygame Documentation. Pygame, https://www.pygame.org/docs/. Accesed 22 January 2
 "Python - Lists." TutorialsPoint. https://www.tutorialspoint.com/python/python_lists.htm. Accesed 22        January 2019.
 Mrs. Gerstein
 Omay Edekar
+Amanda Zheng
